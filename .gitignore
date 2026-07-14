@@ -30,6 +30,10 @@ env/
 **/dog-breed-identification/train/
 **/dog-breed-identification/test/
 
+# Experiment outputs (regeneratable)
+experiments/
+experiments_*/
+
 # Processed/intermediate data
 processed/
 **/processed/
