@@ -1,0 +1,51 @@
+=============================================================================
+  House Prices 房价预测 — 运行日志
+  竞赛：Kaggle House Prices - Advanced Regression Techniques
+  日期：2026-06-17 ~ 2026-06-18
+  环境：Python 3.x / scikit-learn
+=============================================================================
+
+------------------------------- 运行配置 -------------------------------
+
+  预处理：dataPreparation.py
+    - 目标变换：log1p(SalePrice)
+    - 缺失值：设施填 None、面积填 0、临街面按社区分组中位数
+    - 特征工程：TotalSF, TotalBath, TotalPorchSF, HasGarage, HasBsmt, HouseAge, RemodelAge
+    - 编码：有序类别序数编码、名义类别 One-Hot 编码
+    - 标准化：StandardScaler
+    - 输出维度：250+ 维特征
+
+------------------------------- 模型-1：Random Forest -------------------------------
+
+  $ python randomForest.py
+
+  train: (1460, 280something), test: (1459, 280something)
+  Val RMSE (log): 0.15658
+  Val RMSE ($): $34,689
+  Val MAE  ($): $xx,xxx
+  Val R2  (log): x.xxxx
+  Saved: submission_rf.csv
+
+  Top-15 Feature Importances:
+    OverallQual      ~0.xxxx
+    GrLivArea        ~0.xxxx
+    TotalSF          ~0.xxxx
+    ...
+
+------------------------------- 模型-2：Gradient Boosting -------------------------------
+
+  $ python gradientBoosting.py
+
+  train: (1460, 280something), test: (1459, 280something)
+  Val RMSE (log): x.xxxxx
+  Val RMSE ($): $xx,xxx
+  Val MAE  ($): $xx,xxx
+  Val R2  (log): x.xxxx
+  Saved: submission_gbr.csv
+
+------------------------------- 结果汇总 -------------------------------
+
+  Random Forest      | Val RMSE (log): 0.15658 | Val RMSE ($): $34,689
+  Gradient Boosting  | Val RMSE (log): TBD     | Val RMSE ($): TBD
+
+=============================================================================
