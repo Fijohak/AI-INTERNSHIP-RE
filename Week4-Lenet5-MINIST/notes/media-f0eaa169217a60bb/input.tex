@@ -1,0 +1,930 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+  11pt,
+]{ctexart}
+\usepackage{xcolor}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.50,0.00}{\textbf{#1}}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+% fallback for those not using the hyperref driver hyperxmp:
+\makeatletter
+\@ifundefined{xmpquote}{\newcommand{\xmpquote}[1]{#1}}{}
+\makeatother
+\hypersetup{
+  pdftitle={从零理解 LeNet-5 MNIST 手写数字识别 — 教学指南},
+  pdfauthor={李俊宏},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{从零理解 LeNet-5 MNIST 手写数字识别 — 教学指南}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{面向技术小白的完整讲解，适用于导师汇报}
+\author{李俊宏}
+\date{2026-07-10}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{从零理解 LeNet-5 MNIST
+手写数字识别}\label{ux4eceux96f6ux7406ux89e3-lenet-5-mnist-ux624bux5199ux6570ux5b57ux8bc6ux522b}
+
+\begin{quote}
+\textbf{目标读者}：有基础 Python 经验但未接触过深度学习的同学 /
+导师快速了解项目全貌 \textbf{阅读时间}：约 30–40 分钟
+\textbf{配套文件}：\texttt{report/experiment\_report2.0.pdf}（正式实验报告）
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{0.
+前言：这份指南是什么}\label{ux524dux8a00ux8fd9ux4efdux6307ux5357ux662fux4ec0ux4e48}
+
+这份指南的目标是让你\textbf{不依赖任何先验知识}，完整理解本项目做了什么、为什么做、怎么做的、结果如何。我会按照以下顺序讲解：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{背景}：我们要解决什么问题？MNIST 是什么？
+\item
+  \textbf{核心概念}：什么是神经网络？什么是卷积？用生活类比讲清楚
+\item
+  \textbf{LeNet-5}：这个 1998 年的经典模型长什么样？
+\item
+  \textbf{项目拆解}：代码怎么组织的？每个文件的职责
+\item
+  \textbf{实验全景}：我们做了 8 组对照实验，每组在研究什么？
+\item
+  \textbf{结果解读}：数据告诉我们什么？
+\item
+  \textbf{汇报技巧}：怎么在 5–10 分钟内讲清楚这个项目
+\end{enumerate}
+
+如果你只有 10 分钟，请直接跳到 \textbf{第 7 节 — 汇报速查}。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{1.
+背景：我们要解决什么问题？}\label{ux80ccux666fux6211ux4eecux8981ux89e3ux51b3ux4ec0ux4e48ux95eeux9898}
+
+\subsubsection{1.1
+手写数字识别是什么？}\label{ux624bux5199ux6570ux5b57ux8bc6ux522bux662fux4ec0ux4e48}
+
+想象你面前有一堆手写的邮政编码信封。每张信封上有一个手写的数字（0 到
+9），你的任务是\textbf{让电脑自动认出是哪个数字}。
+
+\begin{verbatim}
+┌─────────────┐    ┌──────────────────┐    ┌──────┐
+│ 手写数字图片  │ →  │ 深度学习模型(CNN)  │ →  │ "5"  │
+│  (28×28 灰度) │    │   (LeNet-5)      │    │ (预测结果)│
+└─────────────┘    └──────────────────┘    └──────┘
+\end{verbatim}
+
+这个问题在 1990
+年代具有巨大的商业价值——美国邮政系统每天要处理数百万封信件，自动识别邮政编码可以节省大量人力成本。
+
+\subsubsection{1.2 MNIST
+数据集是什么？}\label{mnist-ux6570ux636eux96c6ux662fux4ec0ux4e48}
+
+MNIST 是机器学习领域最著名的”Hello
+World”级数据集。你可以把它想象成一个\textbf{标准题库}：
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+属性 & 数值 & 类比 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+样本总数 & 70,000 张 & 题库共有 7 万道题 \\
+训练集 & 60,000 张 & 6 万道用来学习和练习 \\
+测试集 & 10,000 张 & 1 万道用来期末考试 \\
+图片尺寸 & 28×28 像素 & 每张图只有 784 个小格子 \\
+颜色 & 灰度（黑和白之间的不同深浅） & 没有彩色，只有”有多黑” \\
+类别 & 0, 1, 2, …, 9（共 10 类） & 答案只有 0 到 9 十种可能 \\
+\end{longtable}
+}
+
+\textbf{一个关键认知}：对电脑来说，一张 28×28 的图片就是一个 \textbf{784
+个数字的列表}。每个数字代表对应像素的亮度（0 = 全黑，255 = 全白）。
+
+\begin{verbatim}
+人眼看到的 "5"：          电脑看到的（28×28 数字矩阵）：
+  ███                     0  0  0 150 255 200  50  0  ...
+  █                       0  0  200 255 180  0  0  0  ...
+  ████                    0  0  0  150 255 210  50  0  ...
+     █                    ...（共 784 个数字，每个 0–255）
+  ████
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{2.
+核心概念：用生活类比理解神经网络}\label{ux6838ux5fc3ux6982ux5ff5ux7528ux751fux6d3bux7c7bux6bd4ux7406ux89e3ux795eux7ecfux7f51ux7edc}
+
+\subsubsection{2.1
+什么是神经元？}\label{ux4ec0ux4e48ux662fux795eux7ecfux5143}
+
+一个神经元做的事情很简单：\textbf{接收一些输入 → 加权求和 →
+决定是否”激活”}。
+
+生活类比：你决定今天要不要出门。
+
+\begin{itemize}
+\tightlist
+\item
+  输入因素：天气好不好？（0–10 分）、有没有约？（0/1）、累不累？（0–10
+  分）
+\item
+  每个因素有不同\textbf{权重}：天气权重 0.5、有约权重 1.0、疲劳权重 −0.8
+\item
+  如果加权总分超过某个\textbf{阈值}，你就出门；否则不出门
+\end{itemize}
+
+\begin{verbatim}
+输入₁ × 权重₁ + 输入₂ × 权重₂ + 输入₃ × 权重₃ → 是否超过阈值 → 输出 0 或 1
+\end{verbatim}
+
+神经网络的”学习”过程，就是\textbf{不断调整这些权重}，让输出越来越接近正确答案。
+
+\subsubsection{2.2 什么是层？}\label{ux4ec0ux4e48ux662fux5c42}
+
+单个神经元能力有限（只能做简单的是/否判断）。把很多神经元叠起来，形成”层”：
+
+\begin{verbatim}
+输入层(784个数字) → 隐藏层₁ → 隐藏层₂ → ... → 输出层(10个数字，代表0–9的概率)
+\end{verbatim}
+
+类比：工厂流水线 - \textbf{第 1 道工序}：检查有没有横线 - \textbf{第 2
+道工序}：检查有没有圆圈 - \textbf{第 3
+道工序}：根据横线和圆圈的组合判断是几
+
+每道工序就是一层神经元。
+
+\subsubsection{2.3 什么是卷积？——
+最关键的概念}\label{ux4ec0ux4e48ux662fux5377ux79ef-ux6700ux5173ux952eux7684ux6982ux5ff5}
+
+普通神经网络（全连接层）有一个致命问题：它把 28×28
+的图片\textbf{直接拉直成一个 784 个数字的长列表}。
+
+\begin{verbatim}
+普通网络看到：  [数字0, 数字1, 数字2, ..., 数字783]
+                ↑ 完全不知道哪些像素是相邻的！
+\end{verbatim}
+
+\textbf{卷积层}不同。它用一个小的”滑块窗口”（比如
+5×5）在图片上一格一格地滑动，每次只看窗口内的一小片区域。
+
+\begin{verbatim}
+生活类比：你用放大镜检查一张照片
+┌─────────────────────────┐
+│    ┌───┐                │
+│    │窗口│ ← 每次只看5×5   │  这个"窗口"就是卷积核
+│    └───┘                │  它会从左上角滑到右下角
+│                         │
+│               →→→→→     │  每滑一步，算一个值
+│               →→→→→     │
+│               →→→→→     │
+└─────────────────────────┘
+\end{verbatim}
+
+\textbf{卷积核}的内容是学出来的：比如一个核学会检测”→“方向的边缘，另一个核学会检测”○“形状。
+
+\textbf{为什么这很重要？}
+因为手写数字的特征是局部的：一个”8”有两个圈，“7”有一条横线和一条斜线。卷积天然适合捕捉这些局部模式。
+
+\subsubsection{2.4 什么是池化？——
+压缩信息}\label{ux4ec0ux4e48ux662fux6c60ux5316-ux538bux7f29ux4fe1ux606f}
+
+卷积之后，我们得到了很多”特征图”。但这些图太大了——池化就是\textbf{每 2×2
+的区域只保留最重要的那一个值}，把图缩小一半。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+池化方式
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+怎么做
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+效果
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{最大池化 (MaxPool)} & 取 2×2 中最大的值 &
+“这个区域有没有强特征？” \\
+\textbf{平均池化 (AvgPool)} & 取 2×2 的平均值 &
+“这个区域整体特征水平如何？” \\
+\end{longtable}
+}
+
+\begin{verbatim}
+原始 4×4 特征图     2×2 MaxPool 后      2×2 AvgPool 后
+┌───────────┐      ┌─────┬─────┐      ┌─────┬─────┐
+│ 1  3  2  1│      │     │     │      │     │     │
+│ 2  6  4  2│  →   │  6  │  5  │      │ 3.0 │ 2.8 │
+│ 3  1  5  1│      ├─────┼─────┤      ├─────┼─────┤
+│ 4  2  2  3│      │  4  │  5  │      │ 2.5 │ 2.8 │
+└───────────┘      └─────┴─────┘      └─────┴─────┘
+\end{verbatim}
+
+\subsubsection{2.5 训练是什么？—— Loss
+和优化器}\label{ux8badux7ec3ux662fux4ec0ux4e48-loss-ux548cux4f18ux5316ux5668}
+
+\textbf{Loss（损失）}：模型当前预测和正确答案之间的”差距”。差距越大，loss
+越大。训练的目标就是让 loss 越来越小。
+
+\begin{verbatim}
+生活类比：学射箭
+- 第 1 箭：偏了 30 厘米（loss = 30）
+- 第 2 箭：偏了 15 厘米（loss = 15）← 有进步
+- 第 3 箭：偏了 5 厘米（loss = 5）  ← 继续进步
+- ...
+- 第 N 箭：正中靶心（loss ≈ 0）
+\end{verbatim}
+
+\textbf{优化器（Optimizer）} 决定每次”往哪个方向、多大步地”调整权重。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+优化器 & 特点 & 类比 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Adam} & 自动调节步长，收敛快 & 有 GPS 导航的自动驾驶 \\
+\textbf{SGD + Momentum} & 固定步长 + 惯性 & 手动驾驶但有定速巡航 \\
+\end{longtable}
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{3. LeNet-5：1998
+年的经典模型}\label{lenet-51998-ux5e74ux7684ux7ecfux5178ux6a21ux578b}
+
+\subsubsection{3.1
+结构总览（一张图看懂）}\label{ux7ed3ux6784ux603bux89c8ux4e00ux5f20ux56feux770bux61c2}
+
+\begin{verbatim}
+输入: 28×28 灰度图（784 个数字）
+    │
+    ▼
+┌─────────────────────────────────────────────────┐
+│  C1: 卷积层 (6个 5×5 卷积核)    输出: 6@28×28     │  ← 检测边缘、角点
+│  S2: 池化层 (2×2 取最大)         输出: 6@14×14     │  ← 压缩一半
+├─────────────────────────────────────────────────┤
+│  C3: 卷积层 (16个 5×5 卷积核)   输出: 16@10×10    │  ← 检测局部形状
+│  S4: 池化层 (2×2 取最大)         输出: 16@5×5      │  ← 再压缩一半
+├─────────────────────────────────────────────────┤
+│  C5: 卷积层 (120个 5×5 卷积核)  输出: 120@1×1     │  ← 全局特征
+├─────────────────────────────────────────────────┤
+│  F6: 全连接层 (120 → 84)         输出: 84         │  ← 特征整合
+│  Output: 全连接层 (84 → 10)      输出: 10         │  ← 最终分类
+└─────────────────────────────────────────────────┘
+    │
+    ▼
+输出: [0.01, 0.00, 0.02, ..., 0.89, ...]
+       数字0  数字1  数字2       数字8
+       ↑ 概率 0.01              ↑ 概率 0.89 → 预测为 "8"
+\end{verbatim}
+
+\textbf{总参数量：61,706 个}（现代模型动辄数亿参数，LeNet-5
+是真正的”微型”网络）
+
+\subsubsection{3.2
+本项目和原论文的区别}\label{ux672cux9879ux76eeux548cux539fux8bbaux6587ux7684ux533aux522b}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+组件
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+1998 年原论文
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+本项目
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+为什么改？
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+激活函数 & \textbf{Tanh}（S 型曲线） & \textbf{ReLU}（负值直接归零） &
+Tanh 容易”学不动”，ReLU 更快更好 \\
+池化 & \textbf{AvgPool}（取平均） & \textbf{MaxPool}（取最大） & MaxPool
+是现代标配，但我们也做了对比实验 \\
+损失函数 & \textbf{MSE}（均方误差） & \textbf{CrossEntropyLoss} &
+后者更适合分类任务 \\
+优化器 & \textbf{SGD}（手动调学习率） & \textbf{Adam}（自适应） & Adam
+收敛更快，但我们也对比了 SGD \\
+C3 连接表 & \textbf{稀疏连接}（不全部连） & \textbf{全连接} &
+简化实现，现代惯例 \\
+\end{longtable}
+}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{4.
+项目拆解：代码怎么组织的？}\label{ux9879ux76eeux62c6ux89e3ux4ee3ux7801ux600eux4e48ux7ec4ux7ec7ux7684}
+
+\subsubsection{4.1 目录结构}\label{ux76eeux5f55ux7ed3ux6784}
+
+\begin{verbatim}
+NumberRec/
+│
+├── main.py                    ← 一键运行：训练 + 评估 + 画图
+│
+├── src/                       ← 核心源代码
+│   ├── model.py               ← LeNet-5 模型定义（MaxPool 版）
+│   ├── model_avg.py           ← LeNet-5 模型定义（AvgPool 版，对照用）
+│   ├── model_tanh.py          ← LeNet-5 模型定义（Tanh 版，对照用）
+│   ├── model_mlp.py           ← 全连接网络（Baseline 对照用）
+│   ├── dataset.py             ← 加载 MNIST 数据
+│   ├── dataset_aug.py         ← 带数据增强的数据加载
+│   ├── train.py               ← 训练脚本（主版本）
+│   ├── train_avg.py           ← 训练脚本（AvgPool 版）
+│   ├── train_tanh.py          ← 训练脚本（Tanh 版）
+│   ├── train_mlp.py           ← 训练脚本（MLP Baseline）
+│   ├── train_aug.py           ← 训练脚本（数据增强版）
+│   ├── evaluate.py            ← 评估脚本（准确率、混淆矩阵）
+│   ├── visualize.py           ← 绘制训练曲线、预测结果
+│   └── visualize_features.py  ← 特征图可视化
+│
+├── experiments/               ← 主实验结果（MaxPool + Adam）
+├── experiments_avg/           ← AvgPool 对照实验结果
+├── experiments_sgd/           ← SGD 优化器对照
+├── experiments_tanh/          ← Tanh 激活函数对照
+├── experiments_mlp/           ← MLP Baseline 对照
+├── experiments_aug/           ← 数据增强实验
+├── experiments_seed*_r*/      ← 多种子稳定性实验（9 个目录）
+├── experiments_bs16/          ← Batch Size=16 实验
+├── experiments_bs256/         ← Batch Size=256 实验
+├── experiments_lr_high/       ← lr=0.01 实验
+├── experiments_lr_low/        ← lr=0.0001 实验
+│
+├── report/                    ← 实验报告
+│   ├── experiment_report.md   ← Markdown 源文件
+│   ├── experiment_report2.0.pdf ← 最终 PDF
+│   └── experiment_report.html ← HTML 备用
+│
+├── notes/                     ← 笔记和指南
+│   ├── paper_notes.md         ← 论文阅读笔记
+│   └── teaching_guide.md      ← 本指南
+│
+├── data/MNIST/                ← MNIST 数据集（自动下载）
+├── requirements.txt           ← Python 依赖
+└── README.md                  ← 项目总览
+\end{verbatim}
+
+\subsubsection{4.2
+如何运行这个项目}\label{ux5982ux4f55ux8fd0ux884cux8fd9ux4e2aux9879ux76ee}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# 1. 安装依赖}
+\ExtensionTok{pip}\NormalTok{ install }\AttributeTok{{-}r}\NormalTok{ requirements.txt}
+
+\CommentTok{\# 2. 一键运行（训练 + 评估 + 画图）}
+\ExtensionTok{python}\NormalTok{ main.py}
+
+\CommentTok{\# 3. 单独训练}
+\BuiltInTok{cd}\NormalTok{ src}
+\ExtensionTok{python}\NormalTok{ train.py }\AttributeTok{{-}{-}epochs}\NormalTok{ 10 }\AttributeTok{{-}{-}optimizer}\NormalTok{ adam }\AttributeTok{{-}{-}lr}\NormalTok{ 0.001}
+
+\CommentTok{\# 4. 评估已训练的模型}
+\ExtensionTok{python}\NormalTok{ evaluate.py }\AttributeTok{{-}{-}model{-}path}\NormalTok{ ../experiments/best\_model.pth}
+
+\CommentTok{\# 5. 运行对照实验（示例）}
+\ExtensionTok{python}\NormalTok{ train.py }\AttributeTok{{-}{-}optimizer}\NormalTok{ sgd }\AttributeTok{{-}{-}lr}\NormalTok{ 0.01 }\AttributeTok{{-}{-}save{-}dir}\NormalTok{ ../experiments\_sgd}
+
+\CommentTok{\# 6. 生成特征图}
+\ExtensionTok{python}\NormalTok{ visualize\_features.py}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{4.3 数据流动图}\label{ux6570ux636eux6d41ux52a8ux56fe}
+
+\begin{verbatim}
+┌──────────┐    ┌──────────┐    ┌──────────┐    ┌──────────┐
+│ MNIST    │ →  │ dataset  │ →  │ train.py │ →  │ model.pth│
+│ 原始数据  │    │ .py      │    │          │    │ (权重文件)│
+│(60K+10K) │    │ 归一化    │    │ 训练循环  │    └────┬─────┘
+└──────────┘    │ 批量化    │    │ 10 epoch  │         │
+                └──────────┘    └──────────┘         ▼
+                                              ┌──────────┐
+                                              │evaluate  │
+                                              │.py       │
+                                              │准确率评估 │
+                                              │混淆矩阵   │
+                                              └────┬─────┘
+                                                   ▼
+                                              ┌──────────┐
+                                              │visualize │
+                                              │.py       │
+                                              │画图输出   │
+                                              └──────────┘
+\end{verbatim}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{5. 实验全景：我们做了 8
+组对照实验}\label{ux5b9eux9a8cux5168ux666fux6211ux4eecux505aux4e86-8-ux7ec4ux5bf9ux7167ux5b9eux9a8c}
+
+\subsubsection{5.0
+为什么做对照实验？}\label{ux4e3aux4ec0ux4e48ux505aux5bf9ux7167ux5b9eux9a8c}
+
+科学的本质是\textbf{控制变量}——每次只改变一个因素，看它如何影响结果。这就好比：
+
+\begin{itemize}
+\tightlist
+\item
+  “加糖之前 vs 加糖之后，咖啡味道差多少？” —— 除了糖以外，所有条件不变
+\item
+  “用 Adam vs 用 SGD 训练，准确率差多少？” ——
+  除了优化器以外，所有条件不变
+\end{itemize}
+
+\subsubsection{5.1
+实验矩阵总览}\label{ux5b9eux9a8cux77e9ux9635ux603bux89c8}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+编号
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+实验名称
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+我们在比什么？
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+结果（简化版）
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Exp-1 & \textbf{池化方法} & MaxPool vs AvgPool & 差异仅
+0.04\%，可以忽略 \\
+Exp-2 & \textbf{优化器} & Adam vs SGD & SGD 略优 0.07\%，但差距很小 \\
+Exp-3 & \textbf{激活函数} & ReLU vs Tanh & ReLU 好 0.28\%，Tanh
+更易过拟合 \\
+Exp-4 & \textbf{多种子稳定性} & 3 个种子 × 3 轮 = 9 次 &
+一致性极高，标准差仅 0.07\% \\
+Exp-5 & \textbf{学习率} & lr = 0.01 / 0.001 / 0.0001 & 0.001 是最优值 \\
+Exp-6 & \textbf{CNN vs MLP} & 卷积 vs 全连接 & CNN 错误率仅为 MLP 的
+37\% \\
+Exp-7 & \textbf{数据增强} & 有无数据增强 & 增强后 99.21\%，错误减少
+17.7\% \\
+Exp-8 & \textbf{Batch Size} & bs = 16 / 64 / 256 & 64 是最优平衡点 \\
+\end{longtable}
+}
+
+\subsubsection{5.2
+各组实验逐一解读}\label{ux5404ux7ec4ux5b9eux9a8cux9010ux4e00ux89e3ux8bfb}
+
+\paragraph{Exp-1：池化方法对比（MaxPool vs
+AvgPool）}\label{exp-1ux6c60ux5316ux65b9ux6cd5ux5bf9ux6bd4maxpool-vs-avgpool}
+
+\textbf{问题}：原论文用 AvgPool（平均值），现代用
+MaxPool（最大值）。到底哪个好？
+
+\textbf{结果}：MaxPool 99.04\% vs AvgPool 99.00\%，\textbf{差距仅
+0.04\%}。在 10,000 张测试图里只差了 4 张。
+
+\textbf{结论}：\textbf{两者在 MNIST 上效果差不多，不用纠结。}
+
+\paragraph{Exp-2：优化器对比（Adam vs
+SGD）}\label{exp-2ux4f18ux5316ux5668ux5bf9ux6bd4adam-vs-sgd}
+
+\textbf{问题}：Adam 是 2014 年才提出的自适应优化器，比原论文的 SGD
+更现代。哪个好？
+
+\textbf{结果}：SGD (lr=0.01) 99.11\% vs Adam 99.04\%。SGD 反而高了
+0.07\%。
+
+\textbf{注意}：SGD 需要 lr=0.01，如果也用 Adam 的 lr=0.001，SGD 只能到
+98.68\%。\textbf{SGD 需要更大的学习率。}
+
+\textbf{结论}：在这个简单任务上，两个优化器效果相当。SGD 没有过时。
+
+\paragraph{Exp-3：激活函数对比（ReLU vs
+Tanh）}\label{exp-3ux6fc0ux6d3bux51fdux6570ux5bf9ux6bd4relu-vs-tanh}
+
+\textbf{问题}：原论文用 Tanh，现代用 ReLU。ReLU 到底好在哪？
+
+\textbf{结果}：ReLU 99.04\% vs Tanh 98.76\%。差距 0.28\%。
+
+\textbf{深层分析}：Tanh 的问题不是 “一开始就慢”（epoch 1
+两人打平），而是”\textbf{后期过拟合}”——训练集上继续进步，测试集上停滞。这说明
+Tanh 更容易记住训练集的噪声。
+
+\textbf{结论}：ReLU 确实更好，但不是”碾压级”的。在浅层网络上，Tanh
+也能用。
+
+\paragraph{Exp-4：多种子稳定性（9
+次重复实验）}\label{exp-4ux591aux79cdux5b50ux7a33ux5b9aux60279-ux6b21ux91cdux590dux5b9eux9a8c}
+
+\textbf{问题}：我们的结果（99.04\%）是否可靠？再跑一次还能得这个数吗？
+
+\textbf{方法}：用 3 个不同随机种子，每个跑 3 遍，共 9 次。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+种子 & 第 1 次 & 第 2 次 & 第 3 次 & 均值 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+42 & 99.04\% & 98.95\% & 98.91\% & 98.97\% \\
+123 & 99.08\% & 99.07\% & 99.07\% & 99.07\% \\
+456 & 99.03\% & 99.10\% & 99.15\% & 99.09\% \\
+\end{longtable}
+}
+
+\textbf{结论}：9 次结果集中在 98.91\%–99.15\%，标准差仅
+0.07\%。\textbf{结果高度可信。}
+
+\paragraph{Exp-5：学习率对比}\label{exp-5ux5b66ux4e60ux7387ux5bf9ux6bd4}
+
+\textbf{问题}：学习率 0.001 是否最优？大一点或小一点会怎样？
+
+\textbf{结果}：
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+lr & 准确率 & 现象 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+0.01（太大） & 98.24\% & 步子太大，在最优解附近反复横跳 \\
+0.001（刚好） & \textbf{99.04\%} & 平稳收敛 \\
+0.0001（太小） & 98.44\% & 走得慢，10 轮来不及学完 \\
+\end{longtable}
+}
+
+\textbf{理解}：lr 太高就像”下山时步子太大，跨过了山谷”；lr
+太低就像”蚂蚁爬下山，太慢”。
+
+\paragraph{Exp-6：CNN vs
+MLP（最震撼的对比）}\label{exp-6cnn-vs-mlpux6700ux9707ux64bcux7684ux5bf9ux6bd4}
+
+\textbf{问题}：不用卷积，直接用全连接层，效果差多少？
+
+\textbf{方法}：MLP 有约 59,000 个参数（和 LeNet-5 的 61,706 基本持平）。
+
+\textbf{结果}：CNN 99.04\% vs MLP \textbf{97.38\%}。
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+指标 & CNN (LeNet-5) & MLP \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+错误率 & 0.96\% & 2.62\% \\
+错误样本数 & 96 / 10,000 & 262 / 10,000 \\
+\end{longtable}
+}
+
+\textbf{CNN 的错误只有 MLP 的 37\%}。也就是说，用同样的参数量，CNN
+少犯了 166 个错误。
+
+\textbf{为什么？} MLP 把图片拉成一条直线，完全不知道”哪些像素相邻”。CNN
+的卷积核天然理解空间结构。
+
+\textbf{这是本报告最有力的结论}：证明了卷积结构的必要性。
+
+\paragraph{Exp-7：数据增强}\label{exp-7ux6570ux636eux589eux5f3a}
+
+\textbf{问题}：对训练图片做一些微小变换（旋转 ±10°、平移
+10\%），能让模型更强吗？
+
+\textbf{结果}：99.04\% → \textbf{99.21\%}（错误率从 0.96\% 降到
+0.79\%，减少 17.7\%）。
+
+\textbf{意义}：这是本项目\textbf{最高准确率}。也验证了原论文 1998
+年就使用的数据增强策略在今天仍然有效。
+
+\paragraph{Exp-8：Batch Size 对比}\label{exp-8batch-size-ux5bf9ux6bd4}
+
+\textbf{问题}：一次给模型看多少张图同时训练，会影响效果吗？
+
+\textbf{结果}：bs=64 是最优的。bs=16 梯度噪声太大，bs=256
+更新频率太低。但在 ±0.11\% 范围内，影响不大。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{6.
+结果解读：数据汇总}\label{ux7ed3ux679cux89e3ux8bfbux6570ux636eux6c47ux603b}
+
+\subsubsection{6.1 一表看全部}\label{ux4e00ux8868ux770bux5168ux90e8}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+配置 & 测试准确率 & 备注 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+LeNet-5 + MaxPool + Adam + lr=0.001 & \textbf{99.04\%} &
+\textbf{基线} \\
++ 数据增强 & \textbf{99.21\%} & \textbf{本项目最高} \\
++ SGD (lr=0.01) & 99.11\% & 优化器替换 \\
++ AvgPool & 99.00\% & 池化替换 \\
++ Tanh & 98.76\% & 激活函数替换 \\
+MLP (不用卷积) & 97.38\% & CNN 对比 \\
+原论文 LeNet-5 (1998) & \textasciitilde99.0\% & 历史参照 \\
+\end{longtable}
+}
+
+\subsubsection{6.2
+哪些数字最容易错？}\label{ux54eaux4e9bux6570ux5b57ux6700ux5bb9ux6613ux9519}
+
+最难区分的数字对（Top 5）：
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+排名 & 真实数字 → 误判为 & 错误次数 & 原因 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 9 → 5 & 8 & 手写 9 下半部分和 5 很像 \\
+2 & 3 → 5 & 6 & 3 的下半圆容易写成 5 \\
+3 & 9 → 4 & 5 & 9 的圈不闭合就像 4 \\
+4 & 2 → 3 & 5 & 2 的弧线和 3 相似 \\
+5 & 6 → 0 & 4 & 6 的圆圈和 0 几乎一样 \\
+\end{longtable}
+}
+
+\subsubsection{6.3 关键洞察}\label{ux5173ux952eux6d1eux5bdf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{LeNet-5 在 28 年后仍然非常有效}：99\%+
+  的准确率在今天的标准下也是优秀水平
+\item
+  \textbf{卷积结构是决定性的}：同参数量下 CNN 比 MLP 的错误率低了 63\%
+\item
+  \textbf{现代化改进有帮助但不大}：ReLU、Adam 等改进只带来 0.2\%–0.3\%
+  的提升
+\item
+  \textbf{数据增强是最有效的提升手段}：+0.17\%，且代价最小
+\item
+  \textbf{池化的选择（Max vs Avg）不重要}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{7. 汇报速查：10
+分钟讲清楚这个项目}\label{ux6c47ux62a5ux901fux67e510-ux5206ux949fux8bb2ux6e05ux695aux8fd9ux4e2aux9879ux76ee}
+
+\subsubsection{7.1
+建议汇报结构}\label{ux5efaux8baeux6c47ux62a5ux7ed3ux6784}
+
+\begin{verbatim}
+[1 分钟]   问题：手写数字识别 + MNIST 数据集
+[2 分钟]   方法：LeNet-5 卷积神经网络（一张结构图讲清楚）
+[1 分钟]   复现：本项目做了哪些现代化调整
+[3 分钟]   实验：8 组对照实验 × 23 次训练（展示最关键的 3 组）
+[2 分钟]   结果：表格 + 混淆矩阵 + 数据增强效果
+[1 分钟]   总结：3 个关键结论 + 未来方向
+\end{verbatim}
+
+\subsubsection{7.2 必讲内容（3 张核心
+PPT）}\label{ux5fc5ux8bb2ux5185ux5bb93-ux5f20ux6838ux5fc3-ppt}
+
+\textbf{第 1 页：模型结构} - LeNet-5 架构图（Conv → Pool → Conv → Pool →
+Conv → FC → FC） - 61,706 个参数 - 一句话：卷积提取特征，全连接做分类
+
+\textbf{第 2 页：8 组实验总览} - 一张大表：实验名称 + 对照组 vs 实验组 +
+关键数字 - 标出最重要的 3 组：CNN vs MLP、数据增强、激活函数
+
+\textbf{第 3 页：最终结论} - CNN \textgreater{}
+MLP（同参数量，错误率仅为 37\%） - 数据增强有效（99.04\% → 99.21\%） -
+LeNet-5 在 28 年后依然有效（99\%+）
+
+\subsubsection{7.3
+可能被问到的问题（准备好答案）}\label{ux53efux80fdux88abux95eeux5230ux7684ux95eeux9898ux51c6ux5907ux597dux7b54ux6848}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+导师可能问
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+你可以答
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+“为什么不用更深的网络？” & LeNet-5 是历史经典，目标是复现而非竞赛。而且
+61K 参数就达到 99\%，说明结构本身就很高效 \\
+“99.04\% 和 99.21\% 的差距有意义吗？” & 有。错误率从 0.96\% 降到
+0.79\%，相对提升 17.7\%。且我们通过 9
+次重复实验（多种子稳定性）验证了结果的稳定性 \\
+“SGD 居然比 Adam 好？” & 在这个简单的凸优化问题上，SGD+Momentum
+的泛化性能确实可以超过 Adam。但差距很小（0.07\%），两个都可以用 \\
+“你自己最满意哪个发现？” & CNN vs MLP 的对比——同等参数量下 CNN
+的错误率只有 MLP 的
+37\%。这最直观地说明了为什么计算机视觉领域要用卷积 \\
+“下一步打算做什么？” & 1) 数据增强调优（不同强度）2) 尝试 Dropout
+等现代正则化 3) 在更大数据集上验证 \\
+\end{longtable}
+}
+
+\subsubsection{7.4 演示建议}\label{ux6f14ux793aux5efaux8bae}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{展示混淆矩阵热力图}（\texttt{experiments/figures/confusion\_matrix.png}）—
+  视觉冲击力强，一眼看出哪些数字易混淆
+\item
+  \textbf{展示错误样本}（\texttt{experiments/figures/misclassified.png}）—
+  让大家直观看到模型也会犯”人类能理解的错误”
+\item
+  \textbf{展示特征图}（\texttt{experiments/figures/feature\_maps\_conv1.png}）—
+  证明底层的卷积核确实学到了边缘检测器
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{附录
+A：术语速查表}\label{ux9644ux5f55-aux672fux8bedux901fux67e5ux8868}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+术语 & 中文 & 一句话解释 \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+CNN & 卷积神经网络 & 用”滑动窗口”提取图像局部特征的网络 \\
+Epoch & 训练轮数 & 把全部 6 万张训练图过一遍 = 1 epoch \\
+Batch Size & 批次大小 & 一次同时给模型看多少张图 \\
+Learning Rate (lr) & 学习率 & 每次调整权重的步长，太大震荡太小太慢 \\
+Loss & 损失/误差 & 模型预测和正确答案的差距，越小越好 \\
+Accuracy & 准确率 & 10,000 张测试图中猜对的比例 \\
+Confusion Matrix & 混淆矩阵 & 10×10 表格，看每个数字被误判成了什么 \\
+ReLU & 线性整流函数 & 输入 \textgreater{} 0 则输出输入，输入 ≤ 0 则输出
+0 \\
+Tanh & 双曲正切 & 把任意输入压缩到 (−1, +1) 之间的 S 形函数 \\
+MaxPool & 最大池化 & 2×2 区域取最大值 \\
+AvgPool & 平均池化 & 2×2 区域取平均值 \\
+Overfitting & 过拟合 & 训练集成绩很好但考试很差 = 死记硬背 \\
+Adam & Adam 优化器 & 自适应调学习率的训练算法 \\
+SGD & 随机梯度下降 & 最经典的训练算法，沿梯度方向小步走 \\
+\end{longtable}
+}
+
+\subsection{附录
+B：常见困惑解答}\label{ux9644ux5f55-bux5e38ux89c1ux56f0ux60d1ux89e3ux7b54}
+
+\textbf{Q: 为什么模型会认错数字？}
+
+A: 回想一下你自己写字——有时候你的 “9” 写得像 “4”，“2” 写得像
+“7”。模型也在面对同样的问题：手写体的类内差异和类间相似性。
+
+\textbf{Q: 99\% 是不是意味着模型比人还厉害？}
+
+A: 不一定。MNIST 的 1\%
+错误率中，很多是人类也无法区分的（潦草、残缺、歧义）。而且如果给人类同样的
+28×28 低分辨率图，人类可能也有 0.2\%–0.5\% 的错误率。
+
+\textbf{Q: 为什么不做更炫酷的模型？}
+
+A:
+这是\textbf{论文复现项目}，目标不是追求最高分，而是理解经典和训练工程能力。LeNet-5
+是 CNN 的”地基”，理解了它才能理解 ResNet、Transformer 等现代架构。
+
+\textbf{Q: PyTorch 和 TensorFlow 哪个好？}
+
+A: 本项目用 PyTorch，因为代码风格更像 Python，适合学习和实验。学术界目前
+PyTorch 占主流（70\%+）。
+
+\end{document}

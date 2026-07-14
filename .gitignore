@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# PyTorch model weights (large binaries, regenerate from code)
+*.pth
+*.pt
+*.ckpt
+
+# Dataset archives
+*.zip
+*.gz
+*.tar
+*.tar.gz
+
+# Kaggle image datasets (large, re-downloadable from Kaggle)
+**/dog-breed-identification/train/
+**/dog-breed-identification/test/
+
+# Processed/intermediate data
+processed/
+**/processed/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Python cache
+*.pyc

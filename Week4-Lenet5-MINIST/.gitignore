@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# PyTorch / Experiment artifacts
+*.pt
+*.pth
+*.ckpt
+
+# MNIST dataset (downloaded by torchvision)
+data/
+
+# Logs & figures (content tracked separately)
+experiments/logs/
+experiments/figures/
+
+# OS
+Thumbs.db
+.DS_Store
