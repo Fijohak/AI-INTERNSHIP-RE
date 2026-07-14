@@ -41,23 +41,22 @@ WeekXX_ProjectName/
 - [ ] 吴恩达 AI Prompting for Everyone
 
 **Iris 分类项目：**
-- [ ] 加载 Iris 数据集（sklearn 内置）
-- [ ] 数据探索 & 可视化（散点图、箱线图）
-- [ ] 实现 KNN / Logistic Regression / SVM 分类
-- [ ] 模型对比：准确率、混淆矩阵、分类报告
-- [ ] 撰写 Iris 项目 report.md
+- [x] 加载 Iris 数据集（sklearn 内置）
+- [x] 数据探索 & 可视化（散点图、箱线图）
+- [x] 实现 KNN / Logistic Regression / SVM 分类
+- [x] 模型对比：准确率、混淆矩阵、分类报告
+- [x] 撰写 Iris 项目 report.md
 
 **线性回归项目：**
-- [ ] 选择一个回归数据集（California Housing / Diabetes）
-- [ ] 数据预处理 & 特征工程
-- [ ] 实现 Linear Regression（sklearn / 手动）
-- [ ] 评估：R²、MSE、残差分析
-- [ ] 撰写线性回归 report.md
+- [x] 选择一个回归数据集（California Housing）
+- [x] 数据预处理 & 特征工程
+- [x] 实现 Linear Regression（sklearn）
+- [x] 评估：R²、MSE、残差分析
+- [x] 撰写线性回归 report.md
 
 **本周提交：**
-- [ ] GitHub/Kaggle 初始化截图
-- [ ] Iris 分类代码 + 图表 + 报告
-- [ ] 线性回归代码 + 图表 + 报告
+- [x] Iris 分类代码 + 图表 + 报告
+- [x] 线性回归代码 + 图表 + 报告
 
 ---
 
@@ -73,14 +72,14 @@ WeekXX_ProjectName/
 **选做项目（至少完成 2 个）：**
 - [ ] 学生成绩预测 — [Student Performance](https://archive.ics.uci.edu/dataset/320/student+performance)
 - [ ] 用户行为分析 — [Online Retail](https://archive.ics.uci.edu/dataset/352/online+retail)
-- [ ] 异常行为识别 — Isolation Forest / One-Class SVM
-- [ ] KMeans / PCA / 层次聚类（选一个聚类项目）
+- [x] 异常行为识别 — Isolation Forest / One-Class SVM
+- [x] KMeans / PCA / 层次聚类（选一个聚类项目）
 
 **本周提交：**
-- [ ] ≥ 4 个 ML 项目的完整代码
-- [ ] 多模型对比表格 & 图表
-- [ ] feature importance / SHAP 分析
-- [ ] 每个项目的 report.md
+- [x] ≥ 4 个 ML 项目的完整代码
+- [x] 多模型对比表格 & 图表
+- [x] feature importance 分析
+- [x] 每个项目的 report.md
 
 ---
 
@@ -268,4 +267,4 @@ WeekXX_ProjectName/
 ---
 
 > 最后更新：2026-07-15
-> 当前进度：Week 4 已完成，下一步 Week 5（ResNet 复现 + Transformer）
+> 当前进度：Week 1-4 已完成，下一步 Week 5（ResNet 复现 + Transformer）
