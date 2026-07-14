@@ -96,8 +96,8 @@ WeekXX_ProjectName/
 | Titanic 生存预测 | [Kaggle Titanic](https://www.kaggle.com/c/titanic) | RF, XGBoost, 集成 |
 | House Prices 房价预测 | Kaggle House Prices | 回归/分类, RF, XGBoost |
 
-- [ ] 完成 Titanic 特征工程、模型训练、Kaggle 提交
-- [ ] 完成 House Prices 特征工程、模型训练、Kaggle 提交
+- [x] 完成 Titanic 特征工程、模型训练、Kaggle 提交
+- [x] 完成 House Prices 特征工程、模型训练、Kaggle 提交
 - [ ] 学习 Kaggle Notebook 的最佳实践
 - [ ] 对比不同模型的 Kaggle Score
 
@@ -111,7 +111,7 @@ WeekXX_ProjectName/
 
 ## 第 4 周：论文复现① — LeNet-5 + MNIST 🔵 **← 当前**
 
-> 当前项目：`NumberRec/`
+> 当前项目：`Week4-Lenet5-MINIST/` ✅ 已完成
 
 - [x] 创建项目骨架
 - [x] 论文阅读笔记（LeCun 1998）
@@ -121,10 +121,10 @@ WeekXX_ProjectName/
 - [x] 评估脚本 `src/evaluate.py`
 - [x] 可视化 `src/visualize.py`
 - [x] 实验对比（AvgPool vs MaxPool、SGD vs Adam、Tanh vs ReLU、Seed 控制）
-- [ ] 补齐 `data_source.md`
-- [ ] 整理 `error_analysis.md`（汇总所有实验的错误分析）
-- [ ] 撰写 `report.md`（最终实验报告，综合所有实验发现）
-- [ ] 整理 `run_log.txt`
+- [x] 补齐 `data_source.md`
+- [x] 整理 `error_analysis.md`（汇总所有实验的错误分析）
+- [x] 撰写 `report.md`（最终实验报告，综合所有实验发现）
+- [x] 整理 `run_log.txt`
 
 **本周提交：**
 - [ ] PyTorch 完整可运行代码
@@ -267,5 +267,5 @@ WeekXX_ProjectName/
 
 ---
 
-> 最后更新：2026-07-14
-> 当前进度：第 4 周（LeNet-5 + MNIST）实验阶段
+> 最后更新：2026-07-15
+> 当前进度：Week 4 已完成，下一步 Week 5（ResNet 复现 + Transformer）
