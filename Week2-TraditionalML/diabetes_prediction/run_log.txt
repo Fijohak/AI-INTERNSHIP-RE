@@ -1,0 +1,31 @@
+=============================================================================
+  糖尿病预测 — 运行日志
+  日期：2026-07-15
+=============================================================================
+
+  样本数: 768, 特征数: 8
+  患病率: ~35%
+  训练/测试: 614 / 154 (80/20 stratified)
+
+  预处理: 零值→中位数填充 + StandardScaler
+
+  --- Logistic Regression ---
+  Accuracy: 0.7662 | AUC: 0.8287
+  Class 1 Recall: ~0.56
+
+  --- Decision Tree (max_depth=4) ---
+  Accuracy: 0.7273 | AUC: 0.7361
+  Class 1 Recall: ~0.50
+
+  --- Random Forest (n=100, max_depth=6) ---
+  Accuracy: 0.7403 | AUC: 0.8170
+  Class 1 Recall: 0.52
+
+  输出:
+    results/figures/feature_distribution.png
+    results/figures/roc_curves.png
+    results/figures/confusion_matrices.png
+    results/figures/feature_importance.png
+    results/metrics.csv
+
+=============================================================================

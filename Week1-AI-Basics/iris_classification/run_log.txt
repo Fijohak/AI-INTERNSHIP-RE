@@ -1,0 +1,29 @@
+=============================================================================
+  Iris 分类 — 运行日志
+  日期：2026-07-15
+=============================================================================
+
+  样本数: 150, 特征数: 4
+  类别: setosa / versicolor / virginica
+  训练/测试: 120 / 30 (80/20 stratified)
+
+  --- KNN (k=5) ---
+  测试准确率: 0.9333
+  setosa: 1.00 | versicolor: 1.00 recall | virginica: 0.80 recall
+
+  --- Logistic Regression ---
+  测试准确率: 0.9333
+  setosa: 1.00 | versicolor: 0.90 | virginica: 0.90
+
+  --- SVM (RBF) ---
+  测试准确率: 0.9667
+  setosa: 1.00 | versicolor: 0.90 recall | virginica: 1.00 recall
+
+  输出:
+    results/figures/feature_distribution.png
+    results/figures/scatter_matrix.png
+    results/figures/confusion_matrices.png
+    results/figures/accuracy_comparison.png
+    results/metrics.csv
+
+=============================================================================

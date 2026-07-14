@@ -1,0 +1,30 @@
+=============================================================================
+  聚类分析 — 运行日志
+  日期：2026-07-15
+=============================================================================
+
+  数据集: Wine (178 条, 13 特征, 3 类)
+  预处理: StandardScaler + PCA(2D)
+
+  --- Elbow & Silhouette ---
+  K=2: Inertia=XXX, Silhouette=0.2XXX
+  K=3: Inertia=XXX, Silhouette=Best  ← 最佳 K
+  K=4~10: Silhouette 逐渐下降
+
+  --- KMeans (K=3) ---
+  Adjusted Rand Index: 0.8975
+  Silhouette Score:    0.2849
+  Homogeneity:         0.8788
+  V-Measure:           0.8759
+
+  --- Agglomerative (K=3, Ward) ---
+  Adjusted Rand Index: 0.7899
+  Silhouette Score:    0.2774
+
+  输出:
+    results/figures/elbow_method.png
+    results/figures/clustering_comparison.png
+    results/figures/dendrogram.png
+    results/metrics.csv
+
+=============================================================================

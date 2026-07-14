@@ -1,0 +1,4 @@
+Model,Accuracy
+KNN (k=5),0.9333
+Logistic Regression,0.9333
+SVM (RBF),0.9667

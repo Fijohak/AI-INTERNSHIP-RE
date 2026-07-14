@@ -1,0 +1,23 @@
+=============================================================================
+  California Housing 线性回归 — 运行日志
+  日期：2026-07-15
+=============================================================================
+
+  样本数: 20,640, 特征数: 8
+  训练/测试: 16,512 / 4,128 (80/20)
+
+  --- Linear Regression ---
+  R2:   0.5758
+  MSE:  0.5559
+  RMSE: 0.7456 ($74,560)
+  MAE:  0.5332 ($53,320)
+
+  输出:
+    results/figures/target_distribution.png
+    results/figures/correlation_matrix.png
+    results/figures/pred_vs_true.png
+    results/figures/residual_analysis.png
+    results/figures/feature_coefficients.png
+    results/metrics.csv
+
+=============================================================================
