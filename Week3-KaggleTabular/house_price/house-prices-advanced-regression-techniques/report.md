@@ -65,9 +65,10 @@
 
 | 指标 | Random Forest | Gradient Boosting |
 |---|---|---|
-| Val RMSE (log) | 0.15658 | TBD |
-| Val RMSE ($) | $34,689 | TBD |
-| Val R² (log) | TBD | TBD |
+| Val RMSE (log) | 0.15658 | **0.13150** |
+| Val RMSE ($) | $34,689 | **$25,938** |
+| Val MAE ($) | $17,846 | **$15,078** |
+| Val R² (log) | 0.8686 | **0.9073** |
 | 提交文件 | submission_rf.csv | submission_gbr.csv |
 
 ## 5. 特征重要性 (Random Forest Top-10)

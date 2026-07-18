@@ -19,8 +19,8 @@ import pickle
 import os
 
 # ====== 路径配置 =====================================================
-BASE = "e:/桌面/kaggle_practice/house_price/house-prices-advanced-regression-techniques"
-PROCESSED_DIR = f"{BASE}/processed"
+BASE = os.path.dirname(os.path.abspath(__file__))
+PROCESSED_DIR = os.path.join(BASE, "processed")
 os.makedirs(PROCESSED_DIR, exist_ok=True)
 
 # ====== 1. 数据加载 ==================================================
