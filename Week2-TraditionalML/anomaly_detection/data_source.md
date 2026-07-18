@@ -4,21 +4,27 @@
 
 | 属性 | 说明 |
 |---|---|
-| 来源 | sklearn.datasets.make_blobs() 合成数据 |
-| 数据生成 | 3 个高斯簇 (正常) + 随机散点 (异常) |
-| 正常样本 | 1,000 个 |
-| 异常样本 | 50 个 (5%) |
-| 特征 | 2 维 (便于可视化) |
-| 任务 | 异常检测 |
+| 来源 | sklearn.datasets.load_wine() |
+| 原始数据 | UCI Wine 数据集（意大利三个品种葡萄酒化学分析） |
+| 正常样本 | 130 条（class_0 + class_1） |
+| 异常样本 | 48 条（class_2） |
+| 异常比例 | 26.9% |
+| 特征 | 13 个连续化学特征 |
+| 任务 | 半监督异常检测 |
 
-## 设计理由
+## 异常检测场景设计
 
-异常检测的核心挑战是：异常样本极少且样本间差异大。使用合成数据可以精确控制异常比例和分布，便于直观对比 Isolation Forest 和 One-Class SVM 的决策边界。
+采用**半监督异常检测范式**：
+- **训练集**：仅使用 class_0 和 class_1（视为"正常"），模型从未见过异常样本
+- **测试集**：class_0/1 的正常样本 + class_2 的"异常"样本混合
 
-## 生成方式
+这是一个标准的异常检测评估设定——训练时模型只学习"正常是什么"，测试时检验能否识别不同于正常的样本。
+
+## 加载方式
 
 ```python
-from sklearn.datasets import make_blobs
-X_normal, _ = make_blobs(n_samples=1000, centers=3, cluster_std=0.8)
-X_outliers = rng.uniform(low=-6, high=6, size=(50, 2))
+from sklearn.datasets import load_wine
+wine = load_wine()
+X, y = wine.data, wine.target
+# class_0, class_1 → 正常; class_2 → 异常
 ```
