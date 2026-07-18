@@ -45,5 +45,8 @@ processed/
 Thumbs.db
 .DS_Store
 
+# 知识词汇表（本地学习参考，不入仓库）
+**/知识词汇表*.md
+
 # Python cache
 *.pyc
